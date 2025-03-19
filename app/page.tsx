@@ -1,10 +1,32 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Download } from "lucide-react"
-import ContactForm from "@/components/contact-form"
-import { devName, email, githubUrl, linkedinUrl, navLinks, skills } from "@/helpers/constants"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  ArrowRight,
+  Download,
+} from "lucide-react";
+import ContactForm from "@/components/contact-form";
+import {
+  devName,
+  email,
+  githubUrl,
+  linkedinUrl,
+  navLinks,
+  skills,
+} from "@/helpers/constants";
+import Image from "next/image";
 
 export default function Portfolio() {
   return (
@@ -17,7 +39,11 @@ export default function Portfolio() {
             </Link>
             <nav className="hidden gap-6 md:flex">
               {navLinks.map((link) => (
-                <Link key={link.name} href={link.path} className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground">
+                <Link
+                  key={link.name}
+                  href={link.path}
+                  className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
+                >
                   {link.name}
                 </Link>
               ))}
@@ -58,7 +84,8 @@ export default function Portfolio() {
                     Dev Full Stack
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Construindo aplicações web modernas com foco em desempenho, acessibilidade e experiência do usuário.
+                    Construindo aplicações web modernas com foco em desempenho,
+                    acessibilidade e experiência do usuário.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -75,7 +102,7 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="flex items-center justify-center">
-                <img
+                <Image
                   alt="Developer"
                   className="aspect-square overflow-hidden rounded-full object-cover object-center border-4 border-border"
                   height="400"
@@ -91,22 +118,33 @@ export default function Portfolio() {
         <section id="about" className="py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">Sobre Mim</h2>
+              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
+                Sobre Mim
+              </h2>
               <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-                Sou um desenvolvedor full stack apaixonado com mais de 2 anos de experiência na construção de aplicações web.
-                Sou especialista em C#, .NET, JavaScript, TypeScript, React, Node.js e tecnologias web modernas. Minha abordagem combina experiência técnica com um forte foco na experiência do usuário e nas regras de negócio.
+                Sou um desenvolvedor full stack apaixonado com mais de 2 anos de
+                experiência na construção de aplicações web. Sou especialista em
+                C#, .NET, JavaScript, TypeScript, React, Node.js e tecnologias
+                web modernas. Minha abordagem combina experiência técnica com um
+                forte foco na experiência do usuário e nas regras de negócio.
               </p>
             </div>
           </div>
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-12 md:py-24 lg:py-32 bg-muted/40 rounded-lg">
+        <section
+          id="skills"
+          className="py-12 md:py-24 lg:py-32 bg-muted/40 rounded-lg"
+        >
           <div className="container px-4 md:px-6">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">Habilidades & Tecnologias</h2>
+              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
+                Habilidades & Tecnologias
+              </h2>
               <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 mb-8">
-                Essas são algumas das tecnologias e ferramentas com as quais trabalho diariamente.
+                Essas são algumas das tecnologias e ferramentas com as quais
+                trabalho diariamente.
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
@@ -122,7 +160,9 @@ export default function Portfolio() {
         <section id="projects" className="py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">Projetos em Destaque</h2>
+              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
+                Projetos em Destaque
+              </h2>
               <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 mb-8">
                 Alguns projetos que desenvolvi recentemente.
               </p>
@@ -156,7 +196,8 @@ export default function Portfolio() {
             <div className="mt-12 text-center">
               <Button asChild variant="outline">
                 <Link href={githubUrl} target="_blank" rel="noreferrer">
-                  Veja Mais Projetos no GitHub <Github className="ml-2 h-4 w-4" />
+                  Veja Mais Projetos no GitHub{" "}
+                  <Github className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -164,12 +205,18 @@ export default function Portfolio() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-12 md:py-24 lg:py-32 bg-muted/40 rounded-lg">
+        <section
+          id="contact"
+          className="py-12 md:py-24 lg:py-32 bg-muted/40 rounded-lg"
+        >
           <div className="container px-4 md:px-6">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">Entre em Contato</h2>
+              <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
+                Entre em Contato
+              </h2>
               <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 mb-8">
-                Tem um projeto em mente ou deseja discutir oportunidades de trabalho? Fique à vontade para entrar em contato!
+                Tem um projeto em mente ou deseja discutir oportunidades de
+                trabalho? Fique à vontade para entrar em contato!
               </p>
             </div>
             <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
@@ -181,13 +228,23 @@ export default function Portfolio() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Linkedin className="h-5 w-5 text-muted-foreground" />
-                  <Link href={linkedinUrl} target="_blank" rel="noreferrer" className="hover:underline">
+                  <Link
+                    href={linkedinUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline"
+                  >
                     {linkedinUrl.replace("https://www.", "")}
                   </Link>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Github className="h-5 w-5 text-muted-foreground" />
-                  <Link href={githubUrl} target="_blank" rel="noreferrer" className="hover:underline">
+                  <Link
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline"
+                  >
                     {githubUrl.replace("https://", "")}
                   </Link>
                 </div>
@@ -200,7 +257,8 @@ export default function Portfolio() {
       <footer className="border-t py-6 md:py-0">
         <div className="mx-auto container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} {devName}. Todos os Direitos Reservados.
+            © {new Date().getFullYear()} {devName}. Todos os Direitos
+            Reservados.
           </p>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" asChild>
@@ -225,7 +283,7 @@ export default function Portfolio() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
 function SkillCard({ title, skills }: { title: string; skills: string[] }) {
@@ -244,7 +302,7 @@ function SkillCard({ title, skills }: { title: string; skills: string[] }) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 function ProjectCard({
@@ -255,17 +313,23 @@ function ProjectCard({
   demoUrl,
   repoUrl,
 }: {
-  title: string
-  description: string
-  tags: string[]
-  image: string
-  demoUrl: string
-  repoUrl: string
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  demoUrl: string;
+  repoUrl: string;
 }) {
   return (
     <Card className="overflow-hidden">
       <div className="aspect-video w-full overflow-hidden">
-        <img src={image || "https://placehold.co/300x500"} alt={title} className="object-cover w-full h-full" />
+        <Image
+          src={image || "https://placehold.co/300x500"}
+          alt={title}
+          className="object-cover w-full h-full"
+          width={300}
+          height={500}
+        />
       </div>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
@@ -293,6 +357,5 @@ function ProjectCard({
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
-

@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "sonner"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    toast("Mensagem enviada!")
+    toast("Mensagem enviada!");
 
-    setIsSubmitting(false)
-    e.currentTarget.reset()
-  }
+    setIsSubmitting(false);
+    e.currentTarget.reset();
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -37,12 +37,16 @@ export default function ContactForm() {
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">Mensagem</Label>
-        <Textarea id="message" placeholder="Sua mensagem" className="min-h-[120px]" required />
+        <Textarea
+          id="message"
+          placeholder="Sua mensagem"
+          className="min-h-[120px]"
+          required
+        />
       </div>
       <Button type="submit" className="w-full" disabled={isSubmitting}>
         {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
       </Button>
     </form>
-  )
+  );
 }
-
