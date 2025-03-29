@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import axios from "axios";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -16,10 +17,24 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const formData = {
+      email: e.currentTarget.email.value,
+      name: e.currentTarget.firstName.value,
+      message: e.currentTarget.message.value,
+    };
+    if (!formData.email || !formData.name || !formData.message) {
+      toast("Por favor, preencha todos os campos.");
+      setIsSubmitting(false);
+      return;
+    }
+    const response = await axios.post("/api/send", formData);
+    if (response.data.error) {
+      toast("Erro ao enviar mensagem. Tente novamente mais tarde.");
+      setIsSubmitting(false);
+      return;
+    }
 
-    toast("Mensagem enviada!");
+    toast("Mensagem enviada! Obrigado por entrar em contato.");
 
     setIsSubmitting(false);
     e.currentTarget.reset();
@@ -28,8 +43,8 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="name">Nome</Label>
-        <Input id="name" placeholder="Seu nome" required />
+        <Label htmlFor="firstName">Nome</Label>
+        <Input id="firstName" placeholder="Seu nome" required />
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
