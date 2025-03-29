@@ -1,15 +1,17 @@
-import { EmailTemplate } from '@/components/email-template';
-import { Resend } from 'resend';
+import { EmailTemplate } from "@/components/email-template";
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST() {
+export async function POST(request: Request) {
+  const { email, name, message } = await request.json();
+
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
-      to: ['delivered@resend.dev'],
-      subject: 'Hello world!',
-      react: await EmailTemplate({ firstName: 'John' }),
+      from: email,
+      to: [process.env.EMAIL_ADDRESS?.toString() || ""],
+      subject: `Nova mensagem de ${name}`,
+      react: await EmailTemplate({ name, message }),
     });
 
     if (error) {
