@@ -59,14 +59,14 @@ export default function ContactForm() {
       );
 
       toast("Mensagem enviada! Obrigado por entrar em contato.");
-
-      setIsSubmitting(false);
-      e.currentTarget.reset();
     } catch (error) {
       console.error(error);
       toast("Erro ao enviar mensagem. Tente novamente mais tarde.");
       setIsSubmitting(false);
       return;
+    } finally {
+      setIsSubmitting(false);
+      e.currentTarget.reset();
     }
   };
 
