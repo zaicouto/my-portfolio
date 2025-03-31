@@ -46,11 +46,15 @@ export default function ContactForm() {
       // }
 
       const formData = new FormData(e.currentTarget);
-      console.log("formData :>> ", formData);
+      const formDataObject: Record<string, string> = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value.toString();
+      });
+      console.log("formDataObject :>> ", formDataObject);
 
       await axios.post(
         "/__forms.html",
-        new URLSearchParams(formData as any).toString(),
+        new URLSearchParams(formDataObject).toString(),
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
