@@ -70,7 +70,7 @@ export default function ContactForm() {
       return;
     } finally {
       setIsSubmitting(false);
-      e.currentTarget.reset();
+      // e.currentTarget.reset();
     }
   };
 
