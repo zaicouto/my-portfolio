@@ -54,7 +54,11 @@ export default function ProjectsSection() {
         </div>
         <div className="mt-12 text-center">
           <Button asChild variant="outline">
-            <Link href={`${githubUrl}?tab=repositories`} target="_blank" rel="noreferrer">
+            <Link
+              href={`${githubUrl}?tab=repositories`}
+              target="_blank"
+              rel="noreferrer"
+            >
               Veja Mais Projetos no GitHub <Github className="ml-2 h-4 w-4" />
             </Link>
           </Button>
