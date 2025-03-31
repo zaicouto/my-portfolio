@@ -31,6 +31,16 @@ export default function ContactForm() {
 
     // console.log('formData :>> ', JSON.stringify(formData));
 
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
+    const formDataObject: Record<string, string> = {};
+
+    formData.forEach((value, key) => {
+      formDataObject[key] = value.toString();
+    });
+
+    console.log("formDataObject :>> ", formDataObject);
+
     try {
       // const response = await axios.post("/api/send", formData, {
       //   headers: {
@@ -45,20 +55,24 @@ export default function ContactForm() {
       //   return;
       // }
 
-      const formData = new FormData(e.target as HTMLFormElement);
-      const formDataObject: Record<string, string> = {};
-      formData.forEach((value, key) => {
-        formDataObject[key] = value.toString();
-      });
-      console.log("formDataObject :>> ", formDataObject);
+      // await axios.post(
+      //   "/__forms.html",
+      //   new URLSearchParams(formDataObject).toString(),
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/x-www-form-urlencoded",
+      //     },
+      //   },
+      // );
 
-      await axios.post(
+      await fetch(
         "/__forms.html",
-        new URLSearchParams(formDataObject).toString(),
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
+          body: new URLSearchParams(formDataObject).toString(),
+          method: "POST",
         },
       );
 
@@ -70,7 +84,7 @@ export default function ContactForm() {
       return;
     } finally {
       setIsSubmitting(false);
-      e.currentTarget.reset();
+      formElement.reset();
     }
   };
 
