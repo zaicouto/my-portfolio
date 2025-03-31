@@ -10,11 +10,11 @@ export async function POST(request: Request) {
     }
 
     const body = await request.text();
-    console.log('body :>> ', body);
+    console.log("body :>> ", body);
 
     // const { email, name, message } = await request.json();
     const { email, name, message } = JSON.parse(body);
-    
+
     const { data, error } = await resend.emails.send({
       from: email,
       to: [process.env.EMAIL_ADDRESS?.toString() || ""],
