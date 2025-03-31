@@ -1,4 +1,4 @@
-export const devName = "Marlon Couto";
+export const devName = "Ozair Couto";
 
 export const navLinks = [
   { name: "Início", path: "#" },
@@ -10,7 +10,7 @@ export const navLinks = [
 
 export const githubUrl = "https://github.com/marloncouto719";
 
-export const linkedinUrl = "https://www.linkedin.com/in/marlon-couto";
+export const linkedinUrl = "https://www.linkedin.com/in/ozair-marlon";
 
 export const email = "marloncouto719@gmail.com";
 
