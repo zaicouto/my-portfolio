@@ -46,13 +46,17 @@ export default function ContactForm() {
       // }
 
       const formData = new FormData(e.currentTarget);
+      console.log("formData :>> ", formData);
 
-      await axios.post("__contact-form.html", {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+      await axios.post(
+        "/__forms.html",
+        new URLSearchParams(formData as any).toString(),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
         },
-        body: new URLSearchParams(formData as any).toString(),
-      });
+      );
 
       toast("Mensagem enviada! Obrigado por entrar em contato.");
 
