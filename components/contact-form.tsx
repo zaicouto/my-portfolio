@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-// import axios from "axios";
+import axios from "axios";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,26 +55,26 @@ export default function ContactForm() {
       //   return;
       // }
 
-      // await axios.post(
-      //   "/__forms.html",
-      //   new URLSearchParams(formDataObject).toString(),
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/x-www-form-urlencoded",
-      //     },
-      //   },
-      // );
-
-      await fetch(
+      await axios.post(
         "/__forms.html",
+        new URLSearchParams(formDataObject).toString(),
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: new URLSearchParams(formDataObject).toString(),
-          method: "POST",
         },
       );
+
+      // await fetch(
+      //   "/__forms.html",
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/x-www-form-urlencoded",
+      //     },
+      //     body: new URLSearchParams(formDataObject).toString(),
+      //     method: "POST",
+      //   },
+      // );
 
       toast("Mensagem enviada! Obrigado por entrar em contato.");
     } catch (error) {
