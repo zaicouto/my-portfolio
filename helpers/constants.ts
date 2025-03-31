@@ -8,7 +8,7 @@ export const navLinks = [
   { name: "Contato", path: "#contact" },
 ];
 
-export const githubUrl = "https://github.com/marloncouto719";
+export const githubUrl = "https://github.com/zaicouto";
 
 export const linkedinUrl = "https://www.linkedin.com/in/ozair-marlon";
 
