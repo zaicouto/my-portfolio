@@ -1,7 +1,7 @@
 import { email, linkedinUrl, githubUrl } from "@/helpers/constants";
 import { Mail, Linkedin, Github } from "lucide-react";
 import React from "react";
-import ContactForm from "./contact-form";
+import ContactForm from "../contact-form";
 import Link from "next/link";
 
 export default function ContactSection() {
