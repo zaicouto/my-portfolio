@@ -22,22 +22,39 @@ export default function ContactForm() {
       name: e.currentTarget.firstName.value,
       message: e.currentTarget.message.value,
     };
+    
     if (!formData.email || !formData.name || !formData.message) {
       toast("Por favor, preencha todos os campos.");
       setIsSubmitting(false);
       return;
     }
-    const response = await axios.post("/api/send", formData);
-    if (response.data.error) {
+    
+    console.log('formData :>> ', JSON.stringify(formData));
+    
+    try {
+      const response = await axios.post("/api/send", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      
+      if (response.data.error) {
+        console.error(response.data.error);
+        toast("Erro ao enviar mensagem. Tente novamente mais tarde.");
+        setIsSubmitting(false);
+        return;
+      }
+      
+      toast("Mensagem enviada! Obrigado por entrar em contato.");
+      
+      setIsSubmitting(false);
+      e.currentTarget.reset();
+    } catch (error) {
+      console.error(error);
       toast("Erro ao enviar mensagem. Tente novamente mais tarde.");
       setIsSubmitting(false);
       return;
     }
-
-    toast("Mensagem enviada! Obrigado por entrar em contato.");
-
-    setIsSubmitting(false);
-    e.currentTarget.reset();
   };
 
   return (
