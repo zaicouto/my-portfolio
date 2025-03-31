@@ -45,7 +45,7 @@ export default function ContactForm() {
       //   return;
       // }
 
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(e.target as HTMLFormElement);
       const formDataObject: Record<string, string> = {};
       formData.forEach((value, key) => {
         formDataObject[key] = value.toString();
@@ -70,7 +70,7 @@ export default function ContactForm() {
       return;
     } finally {
       setIsSubmitting(false);
-      // e.currentTarget.reset();
+      e.currentTarget.reset();
     }
   };
 
