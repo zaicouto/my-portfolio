@@ -66,6 +66,7 @@ export default function ContactForm() {
           placeholder="Seu primeiro nome"
           required
           {...register("firstName")}
+          name="firstName"
         />
         {errors.firstName && (
           <p className="text-red-700 text-sm">{errors.firstName.message}</p>
@@ -78,6 +79,7 @@ export default function ContactForm() {
           placeholder="Seu email"
           required
           {...register("email")}
+          name="email"
         />
         {errors.email && (
           <p className="text-red-700 text-sm">{errors.email.message}</p>
@@ -90,6 +92,7 @@ export default function ContactForm() {
           className="min-h-[120px]"
           required
           {...register("message")}
+          name="message"
         />
         {errors.message && (
           <p className="text-red-700 text-sm">{errors.message.message}</p>
