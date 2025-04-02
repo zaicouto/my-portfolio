@@ -17,20 +17,6 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // const formData = {
-    //   email: e.currentTarget.email.value,
-    //   name: e.currentTarget.firstName.value,
-    //   message: e.currentTarget.message.value,
-    // };
-
-    // if (!formData.email || !formData.name || !formData.message) {
-    //   toast("Por favor, preencha todos os campos.");
-    //   setIsSubmitting(false);
-    //   return;
-    // }
-
-    // console.log('formData :>> ', JSON.stringify(formData));
-
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
     const formDataObject: Record<string, string> = {};
@@ -42,19 +28,6 @@ export default function ContactForm() {
     console.log("formDataObject :>> ", formDataObject);
 
     try {
-      // const response = await axios.post("/api/send", formData, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // });
-
-      // if (response.data.error) {
-      //   console.error(response.data.error);
-      //   toast("Erro ao enviar mensagem. Tente novamente mais tarde.");
-      //   setIsSubmitting(false);
-      //   return;
-      // }
-
       await axios.post(
         "/__forms.html",
         new URLSearchParams(formDataObject).toString(),
@@ -64,17 +37,6 @@ export default function ContactForm() {
           },
         },
       );
-
-      // await fetch(
-      //   "/__forms.html",
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/x-www-form-urlencoded",
-      //     },
-      //     body: new URLSearchParams(formDataObject).toString(),
-      //     method: "POST",
-      //   },
-      // );
 
       toast("Mensagem enviada! Obrigado por entrar em contato.");
     } catch (error) {
