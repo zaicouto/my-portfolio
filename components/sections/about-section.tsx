@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO: melhorar o texto, reescrevendo-o para algo mais pessoal e menos genérico
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-12 md:py-24 lg:py-32">

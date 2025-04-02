@@ -25,6 +25,8 @@ export default function ContactForm() {
       formDataObject[key] = value.toString();
     });
 
+    // TODO: validar dados do formulário
+
     console.log("formDataObject :>> ", formDataObject);
 
     try {

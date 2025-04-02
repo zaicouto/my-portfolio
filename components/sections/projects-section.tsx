@@ -14,6 +14,8 @@ import { githubUrl } from "@/helpers/constants";
 import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "../ui/badge";
 
+// TODO: adicionar animação de hover nos cards e adicionar projetos reais
+
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-12 md:py-24 lg:py-32">

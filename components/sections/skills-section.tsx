@@ -3,6 +3,8 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
 
+// TODO: adicionar ícones para cada tecnologia e adicionar animação de hover
+
 export default function SkillsSection() {
   return (
     <section

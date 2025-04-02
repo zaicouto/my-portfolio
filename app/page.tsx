@@ -6,6 +6,8 @@ import ProjectsSection from "@/components/sections/projects-section";
 import FooterComponent from "@/components/footer-component";
 import ContactSection from "@/components/sections/contact-section";
 
+// TODO: adicionar animação de scroll suave e usar gsap para animações das seções
+
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background">

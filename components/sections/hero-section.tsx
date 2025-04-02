@@ -3,6 +3,8 @@ import { Button } from "../ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import Image from "next/image";
 
+// TODO: adicionar currículo e imagem na pasta public
+
 export default function HeroSection() {
   return (
     <section className="py-12 md:py-24 lg:py-32 xl:py-36">
