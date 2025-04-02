@@ -9,36 +9,38 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import axios from "axios";
+import { z } from "zod";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  firstName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
+  email: z.string().email("Email inválido").min(1, "Insira um e-mail válido"),
+  message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+});
+
+type FormValues = z.infer<typeof schema>;
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setIsSubmitting(true);
-
-    const formElement = e.currentTarget;
-    const formData = new FormData(formElement);
-    const formDataObject: Record<string, string> = {};
-
-    formData.forEach((value, key) => {
-      formDataObject[key] = value.toString();
-    });
-
-    // TODO: validar dados do formulário
-
-    console.log("formDataObject :>> ", formDataObject);
+    console.log("data :>> ", data);
 
     try {
-      await axios.post(
-        "/__forms.html",
-        new URLSearchParams(formDataObject).toString(),
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+      await axios.post("/__forms.html", new URLSearchParams(data).toString(), {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-      );
+      });
 
       toast("Mensagem enviada! Obrigado por entrar em contato.");
     } catch (error) {
@@ -48,41 +50,50 @@ export default function ContactForm() {
       return;
     } finally {
       setIsSubmitting(false);
-      formElement.reset();
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" name="contact">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-4"
+      name="contact"
+    >
       <input type="hidden" name="form-name" value="contact" />
       <div className="space-y-2">
         <Label htmlFor="firstName">Nome</Label>
         <Input
-          id="firstName"
           placeholder="Seu primeiro nome"
           required
-          name="firstName"
+          {...register("firstName")}
         />
+        {errors.firstName && (
+          <p className="text-red-700 text-sm">{errors.firstName.message}</p>
+        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input
-          id="email"
           type="email"
           placeholder="Seu email"
           required
-          name="email"
+          {...register("email")}
         />
+        {errors.email && (
+          <p className="text-red-700 text-sm">{errors.email.message}</p>
+        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">Mensagem</Label>
         <Textarea
-          id="message"
           placeholder="Sua mensagem"
           className="min-h-[120px]"
           required
-          name="message"
+          {...register("message")}
         />
+        {errors.message && (
+          <p className="text-red-700 text-sm">{errors.message.message}</p>
+        )}
       </div>
       <Button type="submit" className="w-full" disabled={isSubmitting}>
         {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
