@@ -30,7 +30,7 @@ export default function HeroSection() {
               </Button>
 
               <Button variant="outline" asChild>
-                <Link href="/resume.pdf" target="_blank">
+                <Link href="/curriculo.pdf" target="_blank">
                   <Download className="mr-2 h-4 w-4" /> Baixar Currículo
                 </Link>
               </Button>
