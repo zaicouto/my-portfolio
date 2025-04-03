@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import Image from "next/image";
+import { devName } from "@/helpers/constants";
 
 // TODO: adicionar currículo e imagem na pasta public
 
@@ -13,7 +14,7 @@ export default function HeroSection() {
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Dev Full Stack
+                Olá! Eu sou {devName}, dev Full Stack
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 Construindo aplicações web modernas com foco em desempenho,
@@ -41,7 +42,7 @@ export default function HeroSection() {
               alt="Developer"
               className="aspect-square overflow-hidden rounded-full object-cover object-center border-4 border-border"
               height="400"
-              src="https://placehold.co/400"
+              src="/assets/hero.png"
               width="400"
             />
           </div>
