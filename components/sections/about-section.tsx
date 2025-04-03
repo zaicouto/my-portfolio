@@ -12,11 +12,18 @@ export default function AboutSection() {
           </h2>
 
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Sou um desenvolvedor full stack apaixonado com mais de 2 anos de
-            experiência na construção de aplicações web. Sou especialista em C#,
-            .NET, JavaScript, TypeScript, React, Node.js e tecnologias web
-            modernas. Minha abordagem combina experiência técnica com um forte
-            foco na experiência do usuário e nas regras de negócio.
+            Sou um Desenvolvedor Full Stack com experiência na construção e
+            manutenção de aplicações web escaláveis e performáticas. Tenho
+            expertise em C#, .NET, JavaScript, TypeScript, React e Node.js, além
+            de trabalhar com bancos de dados SQL e NoSQL, microsserviços, Docker
+            e CI/CD. Minha abordagem combina conhecimento técnico sólido com um
+            forte foco na experiência do usuário, otimização de desempenho e
+            regras de negócio. Já atuei no desenvolvimento de APIs eficientes,
+            integrações com plataformas de terceiros e otimizações de sistemas
+            para maior escalabilidade. Também tenho experiência em SEO, testes
+            automatizados e debugging em produção. Estou sempre buscando
+            aprimorar minhas habilidades e aplicar tecnologias modernas para
+            entregar soluções robustas e de alto impacto.
           </p>
         </div>
       </div>
