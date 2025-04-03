@@ -21,6 +21,7 @@ export default function SkillsSection() {
             trabalho diariamente.
           </p>
         </div>
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
           <SkillCard title="Frontend" skills={skills.frontend} />
           <SkillCard title="Backend" skills={skills.backend} />
@@ -38,6 +39,7 @@ function SkillCard({ title, skills }: { title: string; skills: string[] }) {
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
+
       <CardContent>
         <div className="flex flex-wrap gap-2">
           {skills.map((skill) => (

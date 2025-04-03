@@ -28,6 +28,7 @@ export default function ProjectsSection() {
             Alguns projetos que desenvolvi recentemente.
           </p>
         </div>
+
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <ProjectCard
             title="E-commerce Platform"
@@ -37,6 +38,7 @@ export default function ProjectsSection() {
             demoUrl="https://example.com"
             repoUrl="https://github.com"
           />
+
           <ProjectCard
             title="Task Management App"
             description="A collaborative task management application with real-time updates and team collaboration features."
@@ -45,6 +47,7 @@ export default function ProjectsSection() {
             demoUrl="https://example.com"
             repoUrl="https://github.com"
           />
+
           <ProjectCard
             title="Social Media Dashboard"
             description="An analytics dashboard for social media managers with data visualization and reporting features."
@@ -54,6 +57,7 @@ export default function ProjectsSection() {
             repoUrl="https://github.com"
           />
         </div>
+
         <div className="mt-12 text-center">
           <Button asChild variant="outline">
             <Link
@@ -96,10 +100,12 @@ function ProjectCard({
           height={500}
         />
       </div>
+
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
+
       <CardContent>
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag) => (
@@ -109,12 +115,14 @@ function ProjectCard({
           ))}
         </div>
       </CardContent>
+
       <CardFooter className="flex justify-between">
         <Button variant="outline" size="sm" asChild>
           <Link href={demoUrl} target="_blank" rel="noreferrer">
             Live Demo <ExternalLink className="ml-2 h-4 w-4" />
           </Link>
         </Button>
+
         <Button variant="outline" size="sm" asChild>
           <Link href={repoUrl} target="_blank" rel="noreferrer">
             Código <Github className="ml-2 h-4 w-4" />

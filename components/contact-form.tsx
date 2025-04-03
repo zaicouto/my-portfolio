@@ -70,7 +70,7 @@ export default function ContactForm() {
         {...register("form-name")}
         name="form-name"
       />
-      
+
       <div className="space-y-2">
         <Label htmlFor="firstName">Nome</Label>
         <Input
@@ -83,7 +83,7 @@ export default function ContactForm() {
           <p className="text-red-700 text-sm">{errors.firstName.message}</p>
         )}
       </div>
-      
+
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input
@@ -97,7 +97,7 @@ export default function ContactForm() {
           <p className="text-red-700 text-sm">{errors.email.message}</p>
         )}
       </div>
-      
+
       <div className="space-y-2">
         <Label htmlFor="message">Mensagem</Label>
         <Textarea
@@ -111,7 +111,7 @@ export default function ContactForm() {
           <p className="text-red-700 text-sm">{errors.message.message}</p>
         )}
       </div>
-      
+
       <Button type="submit" className="w-full" disabled={isSubmitting}>
         {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
       </Button>

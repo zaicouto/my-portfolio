@@ -17,6 +17,7 @@ export default function NavbarComponent() {
           <Link href="/" className="flex items-center space-x-2">
             <span className="inline-block font-bold">{devName}</span>
           </Link>
+
           <nav className="hidden gap-6 md:flex">
             {navLinks.map((link) => (
               <Link
@@ -29,6 +30,7 @@ export default function NavbarComponent() {
             ))}
           </nav>
         </div>
+
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
             <Button variant="ghost" size="icon" asChild>
@@ -37,12 +39,14 @@ export default function NavbarComponent() {
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
+
             <Button variant="ghost" size="icon" asChild>
               <Link href={linkedinUrl} target="_blank" rel="noreferrer">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </Button>
+
             <Button variant="ghost" size="icon" asChild>
               <Link href={`mailto:${email}`}>
                 <Mail className="h-5 w-5" />

@@ -10,6 +10,7 @@ export default function AboutSection() {
           <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
             Sobre Mim
           </h2>
+
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
             Sou um desenvolvedor full stack apaixonado com mais de 2 anos de
             experiência na construção de aplicações web. Sou especialista em C#,

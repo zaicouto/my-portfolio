@@ -20,6 +20,7 @@ export default function ContactSection() {
             trabalho? Fique à vontade para entrar em contato!
           </p>
         </div>
+
         <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Informações de Contato</h3>
@@ -27,6 +28,7 @@ export default function ContactSection() {
               <Mail className="h-5 w-5 text-muted-foreground" />
               <span>{email}</span>
             </div>
+
             <div className="flex items-center space-x-2">
               <Linkedin className="h-5 w-5 text-muted-foreground" />
               <Link
@@ -38,6 +40,7 @@ export default function ContactSection() {
                 {linkedinUrl.replace("https://www.", "")}
               </Link>
             </div>
+
             <div className="flex items-center space-x-2">
               <Github className="h-5 w-5 text-muted-foreground" />
               <Link
@@ -50,6 +53,7 @@ export default function ContactSection() {
               </Link>
             </div>
           </div>
+
           <ContactForm />
         </div>
       </div>

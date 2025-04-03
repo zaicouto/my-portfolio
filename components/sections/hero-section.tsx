@@ -20,12 +20,14 @@ export default function HeroSection() {
                 acessibilidade e experiência do usuário.
               </p>
             </div>
+
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild>
                 <Link href="#contact">
                   Entre em Contato <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
+
               <Button variant="outline" asChild>
                 <Link href="/resume.pdf" target="_blank">
                   <Download className="mr-2 h-4 w-4" /> Baixar Currículo
@@ -33,6 +35,7 @@ export default function HeroSection() {
               </Button>
             </div>
           </div>
+
           <div className="flex items-center justify-center">
             <Image
               alt="Developer"

@@ -11,6 +11,7 @@ export default function FooterComponent() {
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           © {new Date().getFullYear()} {devName}. Todos os Direitos Reservados.
         </p>
+
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
             <Link href={githubUrl} target="_blank" rel="noreferrer">
@@ -18,12 +19,14 @@ export default function FooterComponent() {
               <span className="sr-only">GitHub</span>
             </Link>
           </Button>
+
           <Button variant="ghost" size="icon" asChild>
             <Link href={linkedinUrl} target="_blank" rel="noreferrer">
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
           </Button>
+
           <Button variant="ghost" size="icon" asChild>
             <Link href={`mailto:${email}`}>
               <Mail className="h-5 w-5" />
