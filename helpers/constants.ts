@@ -23,7 +23,14 @@ export const skills = {
     "Astro",
     "Angular",
   ].sort(),
-  backend: ["Node.js", "Express", "NestJS", "REST APIs", ".NET", "Python"].sort(),
+  backend: [
+    "Node.js",
+    "Express",
+    "NestJS",
+    "REST APIs",
+    ".NET",
+    "Python",
+  ].sort(),
   database: ["MongoDB", "PostgreSQL", "MySQL", "Prisma", "SQL Server"].sort(),
   devops: ["Docker", "CI/CD", "Git", "GitHub Actions", "AWS"].sort(),
 };
