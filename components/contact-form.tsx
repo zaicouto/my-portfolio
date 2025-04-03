@@ -28,6 +28,7 @@ export default function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(schema),
   });
@@ -37,6 +38,7 @@ export default function ContactForm() {
     console.log("data :>> ", data);
 
     try {
+      // Gambiarra para Netflify forms funcionar com Next.js
       await axios.post("/__forms.html", new URLSearchParams(data).toString(), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -44,6 +46,7 @@ export default function ContactForm() {
       });
 
       toast("Mensagem enviada! Obrigado por entrar em contato.");
+      reset(); // Reseta o formulário após o envio
     } catch (error) {
       console.error(error);
       toast("Erro ao enviar mensagem. Tente novamente mais tarde.");
@@ -60,12 +63,14 @@ export default function ContactForm() {
       className="space-y-4"
       name="contact"
     >
+      {/* Esse input é necessário para o Netflify forms reconhecer o envio. Também é necessário definir explicitamente os attr name dos inputs. */}
       <input
         type="hidden"
         value="contact"
         {...register("form-name")}
         name="form-name"
       />
+      
       <div className="space-y-2">
         <Label htmlFor="firstName">Nome</Label>
         <Input
@@ -78,6 +83,7 @@ export default function ContactForm() {
           <p className="text-red-700 text-sm">{errors.firstName.message}</p>
         )}
       </div>
+      
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input
@@ -91,6 +97,7 @@ export default function ContactForm() {
           <p className="text-red-700 text-sm">{errors.email.message}</p>
         )}
       </div>
+      
       <div className="space-y-2">
         <Label htmlFor="message">Mensagem</Label>
         <Textarea
@@ -104,6 +111,7 @@ export default function ContactForm() {
           <p className="text-red-700 text-sm">{errors.message.message}</p>
         )}
       </div>
+      
       <Button type="submit" className="w-full" disabled={isSubmitting}>
         {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
       </Button>
