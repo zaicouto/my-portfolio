@@ -4,11 +4,12 @@ import { Toaster } from "@/components/ui/sonner";
 import FooterComponent from "@/components/footer-component";
 import NavbarComponent from "@/components/navbar-component";
 import { Inter } from "next/font/google";
+import { devName } from "@/helpers/constants";
 
 // TODO: adicionar mais metadados
 export const metadata: Metadata = {
-  title: "Marlon Couto | Desenvolvedor Full-stack",
-  description: "Portfolio online de Marlon Couto, desenvolvedor full-stack",
+  title: `${devName} | Desenvolvedor Full-stack`,
+  description: `Portfolio online de ${devName}, desenvolvedor full-stack`,
 };
 
 const inter = Inter({
