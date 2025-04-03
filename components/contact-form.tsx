@@ -17,6 +17,7 @@ const schema = z.object({
   firstName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
   email: z.string().email("Email inválido").min(1, "Insira um e-mail válido"),
   message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+  "form-name": z.literal("contact"),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -59,7 +60,12 @@ export default function ContactForm() {
       className="space-y-4"
       name="contact"
     >
-      <input type="hidden" name="form-name" value="contact" />
+      <input
+        type="hidden"
+        value="contact"
+        {...register("form-name")}
+        name="form-name"
+      />
       <div className="space-y-2">
         <Label htmlFor="firstName">Nome</Label>
         <Input
