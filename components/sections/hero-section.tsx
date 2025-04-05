@@ -4,8 +4,6 @@ import { ArrowRight, Download } from "lucide-react";
 import Image from "next/image";
 import { devName } from "@/helpers/constants";
 
-// TODO: adicionar currículo e imagem na pasta public
-
 export default function HeroSection() {
   return (
     <section className="py-12 md:py-24 lg:py-32 xl:py-36">
@@ -30,9 +28,10 @@ export default function HeroSection() {
               </Button>
 
               <Button variant="outline" asChild>
-                <Link href="/curriculo.pdf" target="_blank">
-                  <Download className="mr-2 h-4 w-4" /> Baixar Currículo
-                </Link>
+                <a href="/assets/curriculo.pdf" download="curriculo.pdf">
+                  <Download className="mr-2 h-4 w-4" />
+                  Baixar Currículo
+                </a>
               </Button>
             </div>
           </div>
