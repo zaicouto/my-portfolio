@@ -1,0 +1,3 @@
+- Adicionar widgets
+- Adicionar projetos reais
+- Criar um backend separado (NodeJS) para lidar com chamadas à APIs, validações, etc
